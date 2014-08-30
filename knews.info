@@ -24,3 +24,4 @@ features[variable][] = menu_parent_knews
 features[variable][] = node_options_knews
 features[variable][] = node_preview_knews
 features[variable][] = node_submitted_knews
+features[variable][] = pathauto_node_knews_pattern
