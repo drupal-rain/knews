@@ -19,7 +19,7 @@ function knews_ctools_plugin_api($module = NULL, $api = NULL) {
 function knews_node_info() {
   $items = array(
     'knews' => array(
-      'name' => t('Knews'),
+      'name' => t('News'),
       'base' => 'node_content',
       'description' => t('News content.'),
       'has_title' => '1',
