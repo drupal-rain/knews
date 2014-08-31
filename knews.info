@@ -28,3 +28,4 @@ features[variable][] = node_preview_knews
 features[variable][] = node_submitted_knews
 features[variable][] = pathauto_node_knews_pattern
 features[views_view][] = knews_latest_list
+features[views_view][] = knews_latest_teaser
