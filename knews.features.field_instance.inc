@@ -17,6 +17,12 @@ function knews_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
+      'bullet' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -60,6 +66,12 @@ function knews_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'File attachments.',
     'display' => array(
+      'bullet' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'default' => array(
         'label' => 'above',
         'module' => 'file',
@@ -122,6 +134,16 @@ function knews_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'An intro image.',
     'display' => array(
+      'bullet' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'thumbnail',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'image',
