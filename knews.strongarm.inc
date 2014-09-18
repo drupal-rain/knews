@@ -41,7 +41,7 @@ function knews_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '4',
+          'weight' => '6',
         ),
       ),
       'display' => array(),

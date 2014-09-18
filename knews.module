@@ -5,3 +5,37 @@
  */
 
 include_once 'knews.features.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function knews_ctools_plugin_directory($module, $plugin) {
+  $modules = array('ctools');
+  if (in_array($module, $modules)) {
+    return $module . '/' . $plugin;
+  }
+}
+
+// ============================================================================
+// Taxonomy Menu
+
+/**
+ * Implements hook_taxonomy_menu_path().
+ */
+function knews_taxonomy_menu_path() {
+  $output = array(
+    'knews_taxonomy_menu_path_custom' => t('Custom (news/%knews_cat)'),
+  );
+
+  return $output;
+}
+
+/**
+ * Callback for hook_taxonomy_menu_path.
+ */
+function knews_taxonomy_menu_path_custom($term) {
+  $knews_cat = str_replace(' ', '-', drupal_strtolower($term->name));
+  $path = 'news/' . $knews_cat;
+
+  return $path;
+}
