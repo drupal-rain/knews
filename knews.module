@@ -39,3 +39,22 @@ function knews_taxonomy_menu_path_custom($term) {
 
   return $path;
 }
+
+// Add .active class to item
+function knews_preprocess_views_view_list(&$vars) {
+  $view = $vars['view'];
+  if ($view->name == 'knews_category_navigation') {
+    $current_path = current_path();
+    if ($current_path != 'news' && KtoolsString::startsWith($current_path, 'news')) {
+      $url = explode('/', $current_path);
+      foreach ($view->result as $i => $term) {
+        $term_name = $term->taxonomy_term_data_name;
+        if ($url[1] == str_replace(' ', '-', strtolower($term_name))) {
+          // @experience $vars['classes'] is for <a>, $vars['classes_array'] is for <li>.
+          $class = $vars['classes_array'][$i];
+          $vars['classes_array'][$i] = empty($class) ? 'active' : $class . ' active';
+        }
+      }
+    }
+  }
+}
