@@ -50,11 +50,19 @@ function knews_preprocess_views_view_list(&$vars) {
       $url = explode('/', $current_path);
       foreach ($view->result as $i => $term) {
         // @experience $vars['classes'] as structure array, $vars['classes_array'] is for product.
+        // Add depth
         $depth = $term->taxonomy_term_data_hdepth;
         $vars['classes'][$i][] = 'depth-' . $depth;
+        // Add active
         $term_name = $term->taxonomy_term_data_name;
         if ($url[1] == str_replace(' ', '-', strtolower($term_name))) {
           $vars['classes'][$i][] = 'active';
+          // Add sub-active to parent
+          $depth_tmp = $depth;
+          while ($depth_tmp > 0) {
+            $vars['classes'][$i-1][] = 'sub-active';
+            $depth_tmp--;
+          }
         }
         // Finalize classes
         foreach ($vars['classes_array'] as $i => $classes) {
