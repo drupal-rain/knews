@@ -46,13 +46,18 @@ function knews_preprocess_views_view_list(&$vars) {
   //dsm($vars);
   if ($view->name == 'knews_category_navigation') {
     $current_path = current_path();
-    if ($current_path != 'news' && KtoolsString::startsWith($current_path, 'news')) {
+    if (KtoolsString::startsWith($current_path, 'news')) {
       $url = explode('/', $current_path);
+      $is_root = (!isset($url[1]) || $url[1] == 'all') ? TRUE : FALSE;
       foreach ($view->result as $i => $term) {
         // @experience $vars['classes'] as structure array, $vars['classes_array'] is for product.
         // Add depth
         $depth = $term->taxonomy_term_data_hdepth;
         $vars['classes'][$i][] = 'depth-' . $depth;
+        // Ignore later process for root path.
+        if ($is_root) {
+          continue;
+        }
         // Add active
         $term_name = $term->taxonomy_term_data_name;
         if ($url[1] == str_replace(' ', '-', strtolower($term_name))) {
@@ -64,11 +69,12 @@ function knews_preprocess_views_view_list(&$vars) {
             $depth_tmp--;
           }
         }
-        // Finalize classes
-        foreach ($vars['classes_array'] as $i => $classes) {
-          $vars['classes_array'][$i] = implode(' ', $vars['classes'][$i]);
-        }
+      }
+      // Finalize classes
+      foreach ($vars['classes_array'] as $i => $classes) {
+        $vars['classes_array'][$i] = implode(' ', $vars['classes'][$i]);
       }
     }
   }
+  //dsm($vars);
 }

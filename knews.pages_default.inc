@@ -75,13 +75,71 @@ function knews_default_page_manager_pages() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'twocol';
+  $display->layout = 'bootstrap_twocol_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
-      'left' => NULL,
-      'right' => NULL,
+      'left' => array(
+        'column' => array(
+          'xs' => '12',
+          'sm' => '12',
+          'md' => '8',
+          'lg' => '8',
+        ),
+        'offset' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+        'push' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+        'pull' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+      ),
+      'right' => array(
+        'column' => array(
+          'xs' => '12',
+          'sm' => '12',
+          'md' => '4',
+          'lg' => '4',
+        ),
+        'offset' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+        'push' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+        'pull' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+      ),
+      'top' => NULL,
+      'bottom' => NULL,
+    ),
+    'left' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'right' => array(
+      'style' => 'bootstrap_region',
     ),
   );
   $display->cache = array();
@@ -113,13 +171,16 @@ function knews_default_page_manager_pages() {
     $display->content['new-94dfd6da-6e79-4d6c-9f8e-f1b8e28b6440'] = $pane;
     $display->panels['left'][0] = 'new-94dfd6da-6e79-4d6c-9f8e-f1b8e28b6440';
     $pane = new stdClass();
-    $pane->pid = 'new-fc04fde7-8b9b-4abb-9659-9fe8b0d3aca5';
+    $pane->pid = 'new-e17a838a-9e0e-4bee-b850-522339c5580c';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
     $pane->subtype = 'knews_category_navigation-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -128,9 +189,9 @@ function knews_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'fc04fde7-8b9b-4abb-9659-9fe8b0d3aca5';
-    $display->content['new-fc04fde7-8b9b-4abb-9659-9fe8b0d3aca5'] = $pane;
-    $display->panels['right'][0] = 'new-fc04fde7-8b9b-4abb-9659-9fe8b0d3aca5';
+    $pane->uuid = 'e17a838a-9e0e-4bee-b850-522339c5580c';
+    $display->content['new-e17a838a-9e0e-4bee-b850-522339c5580c'] = $pane;
+    $display->panels['right'][0] = 'new-e17a838a-9e0e-4bee-b850-522339c5580c';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -172,14 +233,72 @@ function knews_default_page_manager_pages() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'twocol';
+  $display->layout = 'bootstrap_twocol_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
       'default' => NULL,
       'middle' => NULL,
-      'left' => NULL,
-      'right' => NULL,
+      'left' => array(
+        'column' => array(
+          'xs' => '12',
+          'sm' => '12',
+          'md' => '8',
+          'lg' => '8',
+        ),
+        'offset' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+        'push' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+        'pull' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+      ),
+      'right' => array(
+        'column' => array(
+          'xs' => '12',
+          'sm' => '12',
+          'md' => '4',
+          'lg' => '4',
+        ),
+        'offset' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+        'push' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+        'pull' => array(
+          'xs' => '0',
+          'sm' => '0',
+          'md' => '0',
+          'lg' => '0',
+        ),
+      ),
+      'top' => NULL,
+      'bottom' => NULL,
+    ),
+    'left' => array(
+      'style' => 'bootstrap_region',
+    ),
+    'right' => array(
+      'style' => 'bootstrap_region',
     ),
   );
   $display->cache = array();

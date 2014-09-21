@@ -38,7 +38,7 @@ function knews_views_default_views() {
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
-  /* Field: Taxonomy term: Name */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -50,10 +50,17 @@ function knews_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Sort criterion: Taxonomy term: Weight */
-  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
-  $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  /* Field: Broken/missing handler */
+  $handler->display->display_options['fields']['hdepth']['id'] = 'hdepth';
+  $handler->display->display_options['fields']['hdepth']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['hdepth']['field'] = 'hdepth';
+  $handler->display->display_options['fields']['hdepth']['label'] = '';
+  $handler->display->display_options['fields']['hdepth']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['hdepth']['element_label_colon'] = FALSE;
+  /* Sort criterion: Broken/missing handler */
+  $handler->display->display_options['sorts']['hweight']['id'] = 'hweight';
+  $handler->display->display_options['sorts']['hweight']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['hweight']['field'] = 'hweight';
   /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
@@ -134,7 +141,7 @@ function knews_views_default_views() {
   $view = new view();
   $view->name = 'knews_latest_rail';
   $view->description = 'Latest news in rail display format.';
-  $view->tag = 'default';
+  $view->tag = 'Knews';
   $view->base_table = 'node';
   $view->human_name = 'News Latest Rail';
   $view->core = 7;
@@ -218,6 +225,7 @@ function knews_views_default_views() {
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['link_to_view'] = '0';
   $export['knews_latest_rail'] = $view;
 
   $view = new view();
@@ -310,6 +318,15 @@ function knews_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['pane_category']['name'] = 'Knews';
   $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 'use_pager';
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
   $handler->display->display_options['argument_input'] = array(
     'tid' => array(
       'type' => 'user',
