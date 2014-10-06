@@ -96,7 +96,7 @@ function knews_field_default_field_instances() {
       'file_directory' => 'knews',
       'file_extensions' => 'doc docx pdf ppt pptx xls xlsx txt bmp gif jpeg jpg png tiff tif 7z gz rar tar tgz zip',
       'filefield_paths' => array(
-        'active_updating' => 0,
+        'active_updating' => 1,
         'file_name' => array(
           'options' => array(
             'pathauto' => 0,
@@ -122,14 +122,20 @@ function knews_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          0 => 'public',
-          1 => 'private',
+          'private' => 0,
+          'public' => 'public',
         ),
         'allowed_types' => array(
-          0 => 'image',
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
         ),
-        'browser_plugins' => array(),
-        'progress_indicator' => 'throbber',
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 0,
+        ),
       ),
       'type' => 'media_generic',
       'weight' => 4,
@@ -183,7 +189,7 @@ function knews_field_default_field_instances() {
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'filefield_paths' => array(
-        'active_updating' => 0,
+        'active_updating' => 1,
         'file_name' => array(
           'options' => array(
             'pathauto' => 0,
@@ -212,15 +218,20 @@ function knews_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          0 => 'public',
-          1 => 'private',
+          'private' => 0,
+          'public' => 'public',
         ),
         'allowed_types' => array(
-          0 => 'image',
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
         ),
-        'browser_plugins' => array(),
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 0,
+        ),
       ),
       'type' => 'media_generic',
       'weight' => 3,
